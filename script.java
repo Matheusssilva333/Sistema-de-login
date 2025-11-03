@@ -4,7 +4,9 @@
  */
 package ultimaaula;
 
+import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 
@@ -77,6 +79,11 @@ public class NewJFrame extends javax.swing.JFrame {
         });
 
         users.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "<<<SELECIONE>>>", "Usuário1", "Usuário2" }));
+        users.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                usersItemStateChanged(evt);
+            }
+        });
         users.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usersActionPerformed(evt);
@@ -122,18 +129,7 @@ public class NewJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>                        
 
-    private void jLabel1FocusLost(java.awt.event.FocusEvent evt) {                                  
-        // TODO add your handling code here:
-    }                                 
-
     private void logarActionPerformed(java.awt.event.ActionEvent evt) {                                      
-        JComboBox usuario = users;
-JPasswordField senha = senhalogin;
- if (users.equals("") && senhalogin.equals("Senha")){
-    JOptionPane.showMessageDialog(this, "Seja bem vindo");
-    } else {
-  JOptionPane.showMessageDialog(this, "Usuario ou senha invalidos");
- }
         
         
         
@@ -147,6 +143,33 @@ JPasswordField senha = senhalogin;
     private void senhaloginActionPerformed(java.awt.event.ActionEvent evt) {                                           
         // TODO add your handling code here:
     }                                          
+
+    private void jLabel1FocusLost(java.awt.event.FocusEvent evt) {                                  
+        // TODO add your handling code here:
+    }                                 
+
+    private void usersItemStateChanged(java.awt.event.ItemEvent evt) {                                       
+JPasswordField senha = senhalogin;
+
+Object se1 = users.getSelectedItem();
+if(se1 == null) return;
+
+String caminho = null;
+if(se1.equals("Usuário1")){
+caminho = "src/ultimaaula/img1.png";
+}
+else if(se1.equals("Usuário2")){
+caminho = "src/ultimaaula/img2.jpg";
+}
+
+if(caminho != null){
+jLabel1.setIcon(new ImageIcon(caminho));
+
+}
+
+ 
+        
+    }                                      
 
     /**
      * @param args the command line arguments
