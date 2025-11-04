@@ -159,7 +159,7 @@ if(se1.equals("Usuário1")){
 caminho = "src/ultimaaula/img1.png";
 }
 else if(se1.equals("Usuário2")){
-caminho = "src/ultimaaula/img2.jpg";
+caminho = "src/ultimaaula/img3.jpg";
 }
 
 if(caminho != null){
